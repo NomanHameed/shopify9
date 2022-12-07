@@ -8,7 +8,14 @@ class ProductController extends Controller
 {
     public function productList()
     {
-        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
+        $shop = auth()->user();
+        if (!$shop->scriptTag_id){
+            $res = 'no tag';
+        }else{
+            $res = $shop->scriptTag_id;
+        }
+
+//        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
         return view('welcome' , compact('res'));
     }
 }
