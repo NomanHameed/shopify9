@@ -21,8 +21,7 @@ Route::get('/login', function (){
     return view('login');
 });
 
-//Route::get('/test', function (){
-//
-//    $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
-//    dd($res);
-//});
+Route::get('/test', function (){
+    $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
+    dd($res);
+});
