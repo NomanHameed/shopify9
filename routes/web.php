@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    dd(auth()->user());
     return view('welcome');
 })->middleware(['verify.shopify'])->name('home');
 
