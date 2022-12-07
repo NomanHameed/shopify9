@@ -9,22 +9,41 @@ class ProductController extends Controller
     public function productList()
     {
         $shop = auth()->user();
-        if (!$shop->scriptTag_id){
-            $script_tags_info = [
-                "script_tag" => [
-                    "event" => "onload",
-                    "src" => asset('assets/script.js')
+        $themes = $shop->api()->rest('GET', '/admin/api/2022-10/themes.json')['body']['themes'];
+        foreach ($themes  as $theme){
+            if($theme->role == 'main'){
+                $active_theme = $theme;
+            }
+        }
+        $data_to_put = [
+            'asset' => [
+                "key" => 'snippets/wixpa.liquid',
+                "value" => "<style>button[name=add]{display: none !important;}</style>"
+            ]
+        ];
+        $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/themes/'.$active_theme->id.'/assets.json', $data_to_put);
+        $this->include_snippet($active_theme->id, $shop);
+//        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
+        return view('welcome');
+    }
+
+    public function include_snippet($active_theme_id, $shop)
+    {
+        $html = $shop->api()->rest('GET', '/admin/api/2022-10/themes/'.$active_theme_id.'/assets.json', ['asset[key]' => 'layout/theme.liquid'])['body']['asset']['value'];
+        $app_include = "{% comment %} // btnhider start {% endcomment %}"."\n {% capture snippet_content %} \n {% include '".'wixpa.liquid'."' %} \n {% endcapture %} \n
+        {% comment %} // btnhider end {% endcomment %}";
+        if(strpos($html, '{% comment %}//btnhider start {% endcomment %}') === false){
+            $pos =strpos($html,'</body>');
+            $newhtml = substr($html, 0, $pos) . $app_include . substr($html, $pos);
+            $toupdate = [
+                "asset" => [
+                    "key" => "layout/theme.liquid",
+                    "value" => $newhtml
                 ]
             ];
-            $script_tag = $shop->api()->rest('POST', '', $script_tags_info)['body']['script_tag']['id'];
-            $shop->scriptTag_id = $script_tag;
-            $res = $script_tag;
-            $shop->save();
-        }else{
-            $res = $shop->scriptTag_id;
+            $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/themes/'.$active_theme_id.'/assets.',$toupdate);
+            dd($snippet);
         }
-
-//        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
-        return view('welcome' , compact('res'));
+        dd(2);
     }
 }
