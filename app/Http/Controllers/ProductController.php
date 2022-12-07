@@ -42,7 +42,7 @@ class ProductController extends Controller
                     "value" => $newhtml
                 ]
             ];
-            $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/themes/'.$active_theme_id.'/assets.',$toupdate);
+            $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/themes/'.$active_theme_id.'/assets.json',$toupdate);
             dd($snippet);
         }
         dd(2);
