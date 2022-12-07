@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
-    return view('welcome' , compact('res'));
-})->middleware(['verify.shopify'])->name('home');
+Route::get('/', [ProductController::class, 'productList'])->middleware(['verify.shopify'])->name('home');
 
 Route::get('/login', function (){
     return view('login');
