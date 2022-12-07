@@ -9,7 +9,8 @@ class ProductController extends Controller
     public function productList()
     {
         $shop = auth()->user();
-        $themes = $shop->api()->rest('GET', '/admin/api/2022-10/themes.json')['body']['themes'];
+        $themes = $shop->api()->rest('GET', '/admin/api/2022-10/themes.json');
+        dd($themes);
         foreach ($themes  as $theme){
             if($theme->role == 'main'){
                 $active_theme = $theme;
