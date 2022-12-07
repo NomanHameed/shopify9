@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
+    return view('welcome' , compact('res'));
 })->middleware(['verify.shopify'])->name('home');
 
 Route::get('/login', function (){
