@@ -221,7 +221,7 @@ return [
     |
     */
 
-    'api_redirect' => env('SHOPIFY_API_REDIRECT', '/authenticate/token'),
+    'api_redirect' => env('SHOPIFY_API_REDIRECT', '/authenticate'),
 
     /*
     |--------------------------------------------------------------------------
