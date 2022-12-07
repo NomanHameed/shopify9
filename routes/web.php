@@ -16,6 +16,7 @@ Route::get('/test', function (){
     dd('testing');
 });
 
+
 Route::get('/', function () {
     return view('welcome');
 })->middleware(['verify.shopify'])->name('home');
