@@ -12,5 +12,6 @@
 
     <script>
         actions.TitleBar.create(app, { title: 'Welcome' });
+        alert('testing');
     </script>
 @endsection
