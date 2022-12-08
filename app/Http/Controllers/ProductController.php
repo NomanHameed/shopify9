@@ -15,10 +15,10 @@ class ProductController extends Controller
               "src" => asset('assets/script.js')
           ]
         ];
-//        $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
+        $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
         $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json');
 
-        dd($scripts);
+        dd($themes);
 //        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
         return view('welcome');
     }
