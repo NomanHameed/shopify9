@@ -21,7 +21,6 @@ class ProductController extends Controller
 //        dd($themes);
 //        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
         foreach ($themes  as $theme){
-            dd($theme);
             if($theme->role == 'main'){
                 $active_theme = $theme;
             }
