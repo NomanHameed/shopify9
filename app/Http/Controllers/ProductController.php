@@ -9,21 +9,15 @@ class ProductController extends Controller
     public function productList()
     {
         $shop = auth()->user();
-        $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
-        dd($themes);
-        foreach ($themes  as $theme){
-            if($theme->role == 'main'){
-                $active_theme = $theme;
-            }
-        }
-        $data_to_put = [
-            'asset' => [
-                "key" => 'snippets/wixpa.liquid',
-                "value" => "<style>button[name=add]{display: none !important;}</style>"
-            ]
+        $script_tag_info = [
+          "script_tag" => [
+              "event" => "onload",
+              "src" => asset('assets/script.js')
+          ]
         ];
-        $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/themes/'.$active_theme->id.'/assets.json', $data_to_put);
-        $this->include_snippet($active_theme->id, $shop);
+        dd($script_tag_info);
+        $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
+
 //        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
         return view('welcome');
     }
