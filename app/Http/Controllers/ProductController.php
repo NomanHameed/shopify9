@@ -15,10 +15,24 @@ class ProductController extends Controller
               "src" => asset('assets/script.js')
           ]
         ];
-//        $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
-        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json');
+        $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
+//        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json');
 
-        dd($scripts);
+//        dd($themes);
+//        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
+        foreach ($themes  as $theme){
+            if($theme->role == 'main'){
+                $active_theme = $theme;
+            }
+        }
+//        $data_to_put = [
+//            'asset' => [
+//                "key" => 'snippets/wixpa.liquid',
+//                "value" => "<style>button[name=add]{display: none !important;}</style>"
+//            ]
+//        ];
+//        $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/themes/'.$active_theme->id.'/assets.json', $data_to_put);
+        $this->include_snippet($active_theme->id, $shop);
 //        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
         return view('welcome');
     }
