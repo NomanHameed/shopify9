@@ -18,7 +18,7 @@ class ProductController extends Controller
         $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
 //        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json');
 
-//        dd($themes);
+        dd($themes);
 //        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
         foreach ($themes  as $theme){
             dd($theme);
