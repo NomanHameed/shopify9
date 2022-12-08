@@ -43,7 +43,7 @@ class ProductController extends Controller
         dd($html);
         $app_include = "{% comment %} // btnhider start {% endcomment %}"."\n {% capture snippet_content %} \n {% include '".'wixpa.liquid'."' %} \n {% endcapture %} \n
         {% comment %} // btnhider end {% endcomment %}";
-        if(strpos($html, '{% comment %}//btnhider start {% endcomment %}') === false){
+        if(strpos($html, '{% comment %} // btnhider start {% endcomment %}') === false){
             $pos =strpos($html,'</body>');
             $newhtml = substr($html, 0, $pos) . $app_include . substr($html, $pos);
             $toupdate = [
