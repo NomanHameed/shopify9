@@ -13,10 +13,10 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-//Route::get('/', [ProductController::class, 'productList'])->middleware(['verify.shopify'])->name('home');
-Route::get('/', function (){
-    return view('welcome');
-})->middleware(['verify.shopify'])->name('home');
+Route::get('/', [ProductController::class, 'productList'])->middleware(['verify.shopify'])->name('home');
+//Route::get('/', function (){
+//    return view('welcome');
+//})->middleware(['verify.shopify'])->name('home');
 
 Route::get('/login', function (){
     return view('login');
