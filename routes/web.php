@@ -19,6 +19,9 @@ Route::get('/', [ProductController::class, 'productList'])->middleware(['verify.
 //})->middleware(['verify.shopify'])->name('home');
 
 Route::get('/login', function (){
+    if (Auth::user()) {
+        return redirect()->route('home');
+    }
     return view('login');
 });
 
