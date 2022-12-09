@@ -9,6 +9,9 @@ class ProductController extends Controller
     public function productList()
     {
         $shop = auth()->user();
+        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json');
+        dd($scripts);
+
 //        $script_tag_info = [
 //          "script_tag" => [
 //              "event" => "onload",
