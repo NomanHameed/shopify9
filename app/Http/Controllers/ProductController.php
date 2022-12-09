@@ -20,7 +20,7 @@ class ProductController extends Controller
                     "src" => asset('assets/script.js')
                 ]
             ];
-            $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/script_tags/'.$scripts[0]->id.'.json')['body'];
+            $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/script_tags/'.$scripts[0]->id.'.json', $script_tag_info);
             dd($snippet);
 //        }else{
 //            $script_tag_info = [
