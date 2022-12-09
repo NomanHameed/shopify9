@@ -40,7 +40,6 @@ class ProductController extends Controller
     public function include_snippet($active_theme_id, $shop)
     {
         $html = $shop->api()->rest('GET', '/admin/api/2022-10/themes/'.$active_theme_id.'/assets.json', ['asset[key]' => 'layout/theme.liquid'])['body']['asset']['value'];
-        dd($html);
         $app_include = "{% comment %} // btnhider start {% endcomment %}"."\n {% capture snippet_content %} \n {% include '".'wixpa.liquid'."' %} \n {% endcapture %} \n
         {% comment %} // btnhider end {% endcomment %}";
         if(strpos($html, '{% comment %} // btnhider start {% endcomment %}') === false){
