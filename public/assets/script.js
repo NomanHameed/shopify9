@@ -1,11 +1,13 @@
-var buttonEl = document.createElement("a");
-buttonEl.href = 'https://www.google.com/';
-var buttonTextEl = document.createElement("span");
-buttonTextEl.className = "picon-p-add-news";
-buttonTextEl.innerText = "Read more news";
-buttonEl.appendChild(buttonTextEl);
-document.getElementsByClassName('product-form__buttons').appendChild(buttonEl);
-
+function appendButton(elementClass, url){
+    var buttonEl = document.createElement("a");
+    buttonEl.href = url;
+    var buttonTextEl = document.createElement("span");
+    buttonTextEl.className = "picon-p-add-news";
+    buttonTextEl.innerText = "Read more news";
+    buttonEl.appendChild(buttonTextEl);
+    document.getElementsByClassName(elementClass).appendChild(buttonEl);
+}
+appendButton('product-form__buttons', 'https://www.google.com/');
 
 
 // var xhr =  new XMLHttpRequest();
