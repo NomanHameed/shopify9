@@ -1,4 +1,5 @@
 function appendButton(elementClass, url){
+    console.log('Console Call Done');
     var buttonEl = document.createElement("a");
     buttonEl.href = url;
     var buttonTextEl = document.createElement("span");
