@@ -11,7 +11,7 @@ class ProductController extends Controller
         $shop = auth()->user();
         $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
 
-
+//        dd($scripts);
         if(count($scripts)>0){
             $snippet = $shop->api()->rest('DELETE', '/admin/api/2022-10/script_tags/'.$scripts[0]->id.'.json')['body'];
             dd($snippet);
@@ -23,7 +23,7 @@ class ProductController extends Controller
                 ]
             ];
             $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
-            dd($scripts);
+            dd($snippet);
         }
         dd('no record');
 
