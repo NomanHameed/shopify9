@@ -28,7 +28,7 @@ class ProductController extends Controller
         $data_to_put = [
             'asset' => [
                 "key" => 'snippets/wixpa.liquid',
-                "value" => "<style>button[name=add]{display: none !important;}</style>"
+                "value" => "<style>button[name=add]{display: none !important;}</style><script>alert('asdfasdf')</script>"
             ]
         ];
         $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/themes/'.$active_theme->id.'/assets.json', $data_to_put);
