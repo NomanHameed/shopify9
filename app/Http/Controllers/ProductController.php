@@ -26,6 +26,7 @@ class ProductController extends Controller
             }
         }
         $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/themes/'.$active_theme->id.'/assets.json', $script_tag_info);
+        dd($snippet);
 //        $data_to_put = [
 //            'asset' => [
 //                "key" => 'snippets/wixpa.liquid',
