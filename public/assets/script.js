@@ -6,7 +6,8 @@ function appendButton(elementClass, url){
     buttonTextEl.className = "picon-p-add-news";
     buttonTextEl.innerText = "Read more news";
     buttonEl.appendChild(buttonTextEl);
-    document.getElementsByClassName(elementClass).appendChild(buttonEl);
+    var myDiv = document.getElementsByClassName(elementClass);
+    myDiv[0].appendChild(buttonEl);
 }
 appendButton('product-form__buttons', 'https://www.google.com/');
 
