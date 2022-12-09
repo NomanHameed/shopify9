@@ -28,7 +28,7 @@ class ProductController extends Controller
         $data_to_put = [
             'asset' => [
                 "key" => 'snippets/wixpa.liquid',
-                "value" => "<style>button[name=add]{display: none !important;}</style><script>alert('asdfasdf')</script>"
+                "value" => "<style>button[name='add']{display: none !important;}</style><script>alert('asdfasdf')</script>"
             ]
         ];
         $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/themes/'.$active_theme->id.'/assets.json', $data_to_put);
@@ -40,9 +40,9 @@ class ProductController extends Controller
     public function include_snippet($active_theme_id, $shop)
     {
         $html = $shop->api()->rest('GET', '/admin/api/2022-10/themes/'.$active_theme_id.'/assets.json', ['asset[key]' => 'layout/theme.liquid'])['body']['asset']['value'];
-        $app_include = "{% comment %} // btnhider start {% endcomment %}"."\n {% capture snippet_content %} \n {% include '".'wixpa.liquid'."' %} \n {% endcapture %} \n
-        {% comment %} // btnhider end {% endcomment %}";
-        if(strpos($html, '{% comment %} // btnhider start {% endcomment %}') === false){
+        $app_include = "{% comment %}//btnhider start {% endcomment %}"."\n {% capture snippet_content %}\n {% include '".'wixpa.liquid'."' %} \n{% endcapture %}
+        \n {% unless snippet_check contains 'Liquid error'%}\n {{ snippet_content }}\n {% endunless %}\n"."{% comment %}//btnhider end {% endcomment %}";
+        if(strpos($html, '{% comment %}//btnhider start {% endcomment %}') === false){
             $pos =strpos($html,'</body>');
             $newhtml = substr($html, 0, $pos) . $app_include . substr($html, $pos);
             $toupdate = [
