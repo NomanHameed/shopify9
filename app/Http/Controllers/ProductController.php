@@ -9,14 +9,14 @@ class ProductController extends Controller
     public function productList()
     {
         $shop = auth()->user();
-        $script_tag_info = [
-          "script_tag" => [
-              "event" => "onload",
-              "src" => asset('assets/script.js')
-          ]
-        ];
-        $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
-        dd($snippet);
+//        $script_tag_info = [
+//          "script_tag" => [
+//              "event" => "onload",
+//              "src" => asset('assets/script.js')
+//          ]
+//        ];
+//        $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
+//        dd($snippet);
         $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
 //        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json');
         $themes = $themes['body']['themes'];
