@@ -18,9 +18,9 @@
 
     <script>
         actions.TitleBar.create(app, { title: 'Welcome' });
-        document.getElementById('addOffer').click(function (){
+        document.getElementById('addOffer').onClick = function (){
             alert('Add Button Alert');
-        })
+        }
     </script>
 
 @endsection
