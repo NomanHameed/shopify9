@@ -9,16 +9,24 @@ class ProductController extends Controller
     public function productList()
     {
         $shop = auth()->user();
-        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json');
-        dd($scripts);
+        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
 
-//        $script_tag_info = [
-//          "script_tag" => [
-//              "event" => "onload",
-//              "src" => asset('assets/script.js')
-//          ]
-//        ];
-//        $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
+
+        if(count($scripts)>0){
+            $snippet = $shop->api()->rest('DELETE', '/admin/api/2022-10/script_tags/'.$scripts[0]->id.'.json')['body'];
+            dd($snippet);
+        }else{
+            $script_tag_info = [
+                "script_tag" => [
+                    "event" => "onload",
+                    "src" => asset('assets/script.js')
+                ]
+            ];
+            $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
+            dd($scripts);
+        }
+        dd('no record');
+
 //        dd($snippet);
         $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
 //        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json');
