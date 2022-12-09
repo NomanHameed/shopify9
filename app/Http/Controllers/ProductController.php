@@ -28,11 +28,13 @@ class ProductController extends Controller
         $data_to_put = [
             'asset' => [
                 "key" => 'snippets/wixpa.liquid',
-                "value" => "<style>button[name='add']{display: none !important;}</style><script>alert('asdfasdf')</script>"
+                "value" =>  asset('script.js')
+//                "value" => "<style>button[name='add']{display: none !important;}</style><script>alert('asdfasdf')</script>"
             ]
         ];
+//        $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/themes/'.$active_theme->id.'/assets.json', $data_to_put);
         $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/themes/'.$active_theme->id.'/assets.json', $data_to_put);
-        $this->include_snippet($active_theme->id, $shop);
+//        $this->include_snippet($active_theme->id, $shop);
 //        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
         return view('welcome');
     }
