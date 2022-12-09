@@ -2,8 +2,14 @@
 
 @section('content')
     <!-- You are: (shop domain name) -->
+    <h2>Make an Offer Button Function</h2>
     <p>You are: {{ $shopDomain ?? Auth::user()->name }}</p>
-    <h1>This is from Laravel Application</h1>
+
+    <div>
+        <div><button type="button" id="addOffer">Add Offer</button></div>
+        <div><button type="button" id="updateOffer">Update Offer</button></div>
+        <div><button type="button" id="deleteOffer">Delete Offer</button></div>
+    </div>
 {{--    @dd($res)--}}
 @endsection
 
@@ -12,5 +18,9 @@
 
     <script>
         actions.TitleBar.create(app, { title: 'Welcome' });
+        document.getElementById('addOffer').click(function (){
+            alert('Add Button Alert');
+        })
     </script>
+
 @endsection
