@@ -15,6 +15,8 @@ class ProductController extends Controller
               "src" => asset('assets/script.js')
           ]
         ];
+        $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
+        dd($snippet);
         $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
 //        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json');
         $themes = $themes['body']['themes'];
@@ -25,8 +27,8 @@ class ProductController extends Controller
                 $active_theme = $theme;
             }
         }
-        $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/themes/'.$active_theme->id.'/assets.json', $script_tag_info);
-        dd($snippet);
+
+
 //        $data_to_put = [
 //            'asset' => [
 //                "key" => 'snippets/wixpa.liquid',
