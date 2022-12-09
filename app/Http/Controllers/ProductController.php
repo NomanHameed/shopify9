@@ -13,7 +13,7 @@ class ProductController extends Controller
 
 //        dd($scripts);
 //        if(count($scripts)>0){
-            $snippet = $shop->api()->rest('DELETE', '/admin/api/2022-10/script_tags/'.$scripts[0]->id.'.json')['body'];
+//            $snippet = $shop->api()->rest('DELETE', '/admin/api/2022-10/script_tags/'.$scripts[0]->id.'.json')['body'];
 //            $script_tag_info = [
 //                "script_tag" => [
 //                    "event" => "onload",
@@ -21,16 +21,16 @@ class ProductController extends Controller
 //                ]
 //            ];
 //            $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/script_tags/'.$scripts[0]->id.'.json', $script_tag_info);
-            dd($snippet);
-//        }else{
-//            $script_tag_info = [
-//                "script_tag" => [
-//                    "event" => "onload",
-//                    "src" => asset('assets/script.js')
-//                ]
-//            ];
-//            $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
 //            dd($snippet);
+//        }else{
+            $script_tag_info = [
+                "script_tag" => [
+                    "event" => "onload",
+                    "src" => asset('assets/script.js')
+                ]
+            ];
+            $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
+            dd($snippet);
 //        }
 //        dd('no record');
 
