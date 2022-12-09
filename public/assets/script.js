@@ -1,5 +1,5 @@
-$( document ).ready(function() {
-    console.log( "ready!" );
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Hello World!");
 });
 // var xhr =  new XMLHttpRequest();
 // // xhr.open('GET', )
