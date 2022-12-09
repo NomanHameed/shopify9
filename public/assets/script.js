@@ -1,10 +1,10 @@
 function appendButton(elementClass, url){
     console.log('Console Call Done');
-    var buttonEl = document.createElement("a");
-    buttonEl.href = url;
+    var buttonEl = document.createElement("button");
+    // buttonEl.href = url;
     var buttonTextEl = document.createElement("span");
-    buttonTextEl.className = "picon-p-add-news";
-    buttonTextEl.innerText = "Read more news";
+    buttonTextEl.className = "product-form__submit button button--full-width button--secondary";
+    buttonTextEl.innerText = "Make Offer";
     buttonEl.appendChild(buttonTextEl);
     var myDiv = document.getElementsByClassName(elementClass);
     myDiv[0].appendChild(buttonEl);
