@@ -1,8 +1,11 @@
 function appendButton(elementClass, url){
-    console.log('Console Call Done');
+
+    var listofClasses = document.getElementsByName('add')[0].classList;
+
     var buttonEl = document.createElement("button");
+
     // buttonEl.href = url;
-    buttonEl.className = 'product-form__submit button button--full-width button--secondary';
+    buttonEl.className = listofClasses.value; //'product-form__submit button button--full-width button--secondary';
     var buttonTextEl = document.createElement("span");
     // buttonTextEl.className = "";
     buttonTextEl.innerText = "Make Offer";
