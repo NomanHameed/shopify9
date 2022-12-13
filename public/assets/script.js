@@ -5,6 +5,7 @@ function appendButton(){
     console.log(listofClasses.value);
     var buttonEl = document.createElement("button");
     // buttonEl.href = url;
+    buttonEl.onclick = myFunction();
     buttonEl.className = listofClasses.value;
     buttonEl.style = 'margin-top : 5px !important'
     buttonEl.type = 'button';
@@ -20,6 +21,16 @@ function appendButton(){
         console.log(parentElement);
         parentElement.appendChild(buttonEl);
     })
+}
+
+function myFunction() {
+    let text;
+    let person = prompt("Please enter your name:", "Harry Potter");
+    if (person == null || person == "") {
+        text = "User cancelled the prompt.";
+    } else {
+        text = "Hello " + person + "! How are you today?";
+    }
 }
 appendButton();
 
