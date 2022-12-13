@@ -16,8 +16,8 @@ function appendButton(){
     var divList = document.getElementsByName('add');
     console.log(divList);
     divList.forEach(function (myDiv) {
-        console.log(myDiv);
         var parentElement = myDiv.parentElement.closest('div');
+        console.log(parentElement);
         parentElement.appendChild(buttonEl);
     })
 }
