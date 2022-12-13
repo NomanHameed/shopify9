@@ -5,7 +5,7 @@ function appendButton(){
     console.log(listofClasses.value);
     var buttonEl = document.createElement("button");
     // buttonEl.href = url;
-    buttonEl.onclick = myFunction();
+    buttonEl.setAttribute('onclick', myFunction());
     buttonEl.className = listofClasses.value;
     buttonEl.style = 'margin-top : 5px !important'
     buttonEl.type = 'button';
