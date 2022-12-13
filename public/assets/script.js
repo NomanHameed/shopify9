@@ -1,10 +1,10 @@
 function appendButton(){
 
     var listofClasses = document.getElementsByName('add')[0].classList;
-    console.log('script file');
+    listofClasses.add('mko');
+    console.log(listofClasses.value);
     var buttonEl = document.createElement("button");
     // buttonEl.href = url;
-    buttonEl.onclick = alert('testing');
     buttonEl.className = listofClasses.value;
     buttonEl.style = 'margin-top : 5px !important'
     buttonEl.type = 'button';
