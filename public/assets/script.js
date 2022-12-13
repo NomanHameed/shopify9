@@ -4,6 +4,7 @@ function appendButton(){
     console.log('script file');
     var buttonEl = document.createElement("button");
     // buttonEl.href = url;
+    buttonEl.onclick = alert('testing');
     buttonEl.className = listofClasses.value;
     buttonEl.style = 'margin-top : 5px !important'
     buttonEl.type = 'button';
@@ -14,7 +15,6 @@ function appendButton(){
 
     // var divList = document.getElementsByClassName(elementClass);
     var divList = document.getElementsByName('add');
-    console.log(divList);
     divList.forEach(function (myDiv) {
         var parentElement = myDiv.parentElement.closest('div');
         console.log(parentElement);
