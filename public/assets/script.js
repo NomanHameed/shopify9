@@ -1,4 +1,4 @@
-function appendButton(elementClass, url){
+function appendButton(){
 
     var listofClasses = document.getElementsByName('add')[0].classList;
     console.log('script file');
@@ -11,13 +11,17 @@ function appendButton(elementClass, url){
     // buttonTextEl.className = "";
     buttonTextEl.innerText = "Make Offer";
     buttonEl.appendChild(buttonTextEl);
-    var divList = document.getElementsByClassName(elementClass);
+
+    // var divList = document.getElementsByClassName(elementClass);
+    var divList = document.getElementsByName('add');
+    console.log(divList);
     divList.forEach(function (myDiv) {
         console.log(myDiv);
-        myDiv.appendChild(buttonEl);
+        var parentElement = myDiv.parentElement.closest('div');
+        parentElement.appendChild(buttonEl);
     })
 }
-appendButton('product-form__buttons', 'https://www.google.com/');
+appendButton();
 
 
 // var xhr =  new XMLHttpRequest();
