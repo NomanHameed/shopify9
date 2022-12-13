@@ -1,13 +1,11 @@
 function appendButton(elementClass, url){
 
     var listofClasses = document.getElementsByName('add')[0].classList;
-
+    console.log('script file');
     var buttonEl = document.createElement("button");
-
     // buttonEl.href = url;
-
     buttonEl.className = listofClasses.value;
-    buttonEl.style = 'margin-top : 5px'
+    buttonEl.style = 'margin-top : 5px !important'
     buttonEl.type = 'button';
     var buttonTextEl = document.createElement("span");
     // buttonTextEl.className = "";
@@ -15,6 +13,7 @@ function appendButton(elementClass, url){
     buttonEl.appendChild(buttonTextEl);
     var divList = document.getElementsByClassName(elementClass);
     divList.forEach(function (myDiv) {
+        console.log(myDiv);
         myDiv.appendChild(buttonEl);
     })
 }
