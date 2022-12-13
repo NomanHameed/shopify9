@@ -21,12 +21,12 @@ function appendButton(){
         parentElement.appendChild(buttonEl);
     })
 }
-
-var mkoElement = document.getElementsByClassName('mko');
-mkoElement[0].onclick(function (){
-    alert('this is testing');
-})
-
+window.onload = function (){
+    var mkoElement = document.getElementsByClassName('mko');
+    mkoElement[0].onclick(function (){
+        alert('this is testing');
+    })
+}
 
 appendButton();
 
