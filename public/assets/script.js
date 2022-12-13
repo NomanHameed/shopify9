@@ -5,13 +5,18 @@ function appendButton(elementClass, url){
     var buttonEl = document.createElement("button");
 
     // buttonEl.href = url;
-    buttonEl.className = listofClasses.value; //'product-form__submit button button--full-width button--secondary';
+
+    buttonEl.className = listofClasses.value;
+    buttonEl.style = 'margin-top : 5px'
+    buttonEl.type = 'button';
     var buttonTextEl = document.createElement("span");
     // buttonTextEl.className = "";
     buttonTextEl.innerText = "Make Offer";
     buttonEl.appendChild(buttonTextEl);
-    var myDiv = document.getElementsByClassName(elementClass);
-    myDiv[0].appendChild(buttonEl);
+    var divList = document.getElementsByClassName(elementClass);
+    divList.forEach(function (myDiv) {
+        myDiv.appendChild(buttonEl);
+    })
 }
 appendButton('product-form__buttons', 'https://www.google.com/');
 
