@@ -12,7 +12,19 @@ function appendButton(){
     document.body.append(modaldiv);
     document.body.append(overlaydiv);
 
-    // buttonEl.addEventListener("click", openModal);
+    const modal = document.querySelector(".modal");
+    const overlay = document.querySelector(".overlay");
+    // const openModalBtn = document.querySelector(".mko");
+
+    const openModal = function () {
+        console.log('modal open');
+        modal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+    };
+
+    // openModalBtn.addEventListener("click", openModal);
+
+    buttonEl.addEventListener("click", openModal);
     // buttonEl.href = url;
     // buttonEl.setAttribute('onclick', myFunction());
     buttonEl.className = listofClasses.value;
@@ -32,17 +44,7 @@ function appendButton(){
     })
 
 
-    const modal = document.querySelector(".modal");
-    const overlay = document.querySelector(".overlay");
-    const openModalBtn = document.querySelector(".mko");
 
-    const openModal = function () {
-        console.log('modal open');
-        modal.classList.remove("hidden");
-        overlay.classList.remove("hidden");
-    };
-
-    openModalBtn.addEventListener("click", openModal);
     // add style to head
 
 
