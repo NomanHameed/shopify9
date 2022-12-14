@@ -30,9 +30,15 @@ function appendButton(){
     modalOfferEl.type = 'number';
     modaldiv.appendChild(modalOfferEl);
 
+    var modalSubmitEl = document.createElement("button");
+    modalSubmitEl.className = 'btn';
+    modalSubmitEl.type = 'button';
+    modalSubmitEl.innerText = 'Submit'
+    modaldiv.appendChild(modalSubmitEl);
+
     const modal = document.querySelector(".modal");
     const overlay = document.querySelector(".overlay");
-    // const openModalBtn = document.querySelector(".mko");
+    const closeModalBtn = document.querySelector(".btn-close");
 
     const openModal = function () {
         console.log('modal open');
@@ -40,9 +46,16 @@ function appendButton(){
         overlay.classList.remove("hidden");
     };
 
+    const closeModal = function () {
+        modal.classList.add("hidden");
+        overlay.classList.add("hidden");
+    };
+
     // openModalBtn.addEventListener("click", openModal);
 
     buttonEl.addEventListener("click", openModal);
+    closeModalBtn.addEventListener("click", closeModal);
+
     // buttonEl.href = url;
     // buttonEl.setAttribute('onclick', myFunction());
     buttonEl.className = listofClasses.value;
@@ -124,7 +137,7 @@ function appendButton(){
             '.btn-close {\n' +
             '  transform: translate(10px, -20px);\n' +
             '  padding: 0.5rem 0.7rem;\n' +
-            '  background: #eee;\n' +
+            '  background: #f98989;\n' +
             '  margin-right: 15px;\n' +
             '  margin-left: auto;' +
             '  border-radius: 50%;\n' +
