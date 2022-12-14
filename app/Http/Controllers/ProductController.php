@@ -56,7 +56,7 @@ class ProductController extends Controller
 //        $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/themes/'.$active_theme->id.'/assets.json', $data_to_put);
 //        $this->include_snippet($active_theme->id, $shop);
 //        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
-        return view('welcome');
+        return view('home');
     }
 
     public function include_snippet($active_theme_id, $shop)
@@ -77,5 +77,9 @@ class ProductController extends Controller
             dd($snippet);
         }
         dd(2);
+    }
+
+    public function sendEmail(Request $request){
+        dd($request);
     }
 }

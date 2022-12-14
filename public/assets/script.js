@@ -19,10 +19,10 @@ function appendButton(elementClass){
     modalCloseEl.type = 'button';
     modalCloseEl.innerText = 'x'
     modalCloseDiv.appendChild(modalCloseEl);
-
     var modalEmailEl = document.createElement("input");
     modalEmailEl.placeholder = "Email Address";
     modalEmailEl.type = 'email';
+    modalEmailEl.required = true;
     modaldiv.appendChild(modalEmailEl);
 
     var modalOfferEl = document.createElement("input");
@@ -31,7 +31,7 @@ function appendButton(elementClass){
     modaldiv.appendChild(modalOfferEl);
 
     var modalSubmitEl = document.createElement("button");
-    modalSubmitEl.className = 'btn';
+    modalSubmitEl.className = 'btn btn-submit';
     modalSubmitEl.type = 'button';
     modalSubmitEl.innerText = 'Submit'
     modaldiv.appendChild(modalSubmitEl);
@@ -39,6 +39,7 @@ function appendButton(elementClass){
     const modal = document.querySelector(".modal");
     const overlay = document.querySelector(".overlay");
     const closeModalBtn = document.querySelector(".btn-close");
+    const submitModalBtn = document.querySelector(".btn-submit");
 
     const openModal = function () {
         console.log('modal open');
@@ -73,6 +74,36 @@ function appendButton(elementClass){
         console.log(divList);
         divList[0].appendChild(buttonEl);
     // })
+
+
+
+    // call testing
+    const runCall = function(){
+
+        // Creating Our XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+
+        // Making our connection
+        var url = 'https://jsonplaceholder.typicode.com/todos/1';
+        xhr.open("GET", url, true);
+
+        // function execute after request is successful
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        }
+        // Sending our request
+        xhr.send();
+    }
+    submitModalBtn.addEventListener("click", runCall);
+
+
+
+
+
+
+
 
 
 
@@ -171,13 +202,5 @@ function appendButton(elementClass){
 
 
 }
-function myFunction() {
-    let text;
-    let person = prompt("Please enter your name:", "Harry Potter");
-    if (person == null || person == "") {
-        text = "User cancelled the prompt.";
-    } else {
-        text = "Hello " + person + "! How are you today?";
-    }
-}
+
 appendButton('product-form__buttons');
