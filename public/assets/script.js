@@ -9,7 +9,7 @@ function appendButton(){
     var modal = document.createElement('section');
     modal.className = 'modal hidden';
     var overlay = document.createElement('div');
-    modal.className = 'overlay hidden';
+    overlay.className = 'overlay hidden';
 
     buttonEl.addEventListener("click", myFunction);
     // buttonEl.href = url;
