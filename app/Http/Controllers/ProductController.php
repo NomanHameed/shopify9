@@ -80,6 +80,6 @@ class ProductController extends Controller
     }
 
     public function sendEmail(Request $request){
-        dd($request);
+        dd(auth()->user());
     }
 }
