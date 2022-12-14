@@ -70,7 +70,7 @@ function appendButton(elementClass){
     // var divList = document.getElementsByName('add');
     // divList.forEach(function (myDiv) {
     //     var parentElement = myDiv.parentElement.closest('div');
-        console.log(parentElement);
+        console.log(divList);
         divList[0].appendChild(buttonEl);
     // })
 
