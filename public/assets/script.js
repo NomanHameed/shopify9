@@ -11,6 +11,9 @@ function appendButton(){
     overlaydiv.className = 'overlay hidden';
     document.body.append(modaldiv);
     document.body.append(overlaydiv);
+    var modalTextEl = document.createElement("span");
+    modalTextEl.innerText = "InSide on Modal";
+    modaldiv.appendChild(modalTextEl);
 
     const modal = document.querySelector(".modal");
     const overlay = document.querySelector(".overlay");
