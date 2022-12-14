@@ -3,7 +3,7 @@ function appendButton(){
     var listofClasses = document.getElementsByName('add')[0].classList;
     listofClasses.add('mko');
     listofClasses.add('btn');
-    listofClasses.add(' btn-open');
+    listofClasses.add('btn-open');
     console.log(listofClasses.value);
     var buttonEl = document.createElement("button");
     var modal = document.createElement('section');
