@@ -17,21 +17,21 @@
             {{ session()->get('error') }}
         </div>
     @endif
-    <div>
-        <div>
+    <div class="row">
+        <div class="col-1">
             <form action="{{ route('add.script') }}" method="get">
                 @csrf
                 <button class="btn btn-primary" type="submit" id="addOffer">Add Offer</button>
             </form>
         </div>
-        <div>
+        <div  class="col-1">
             <form action="{{ route('update.script') }}" method="get">
                 @csrf
                 <button class="btn--secondary" type="submit" id="updateOffer">Update Offer</button>
 
             </form>
         </div>
-        <div>
+        <div class="col-1">
             <form action="{{ route('remove.script') }}" method="get">
                 <button class="btn--secondary" type="submit" id="deleteOffer">Delete Offer</button>
             </form>
