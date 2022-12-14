@@ -70,7 +70,7 @@ class ProductController extends Controller
                 ]
             ];
             $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
-            return redirect()->back()->with('success', 'Make Offer Button Added Successfully');
+            return redirect()->route('home')->with('success', 'Make Offer Button Added Successfully');
         }
     }
 
@@ -86,9 +86,9 @@ class ProductController extends Controller
             ];
             $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/script_tags/' . $scripts[0]->id . '.json', $script_tag_info);
             dd($snippet);
-            return redirect()->back()->with('success', 'Make Offer Button Script Updated Successfully');
+            return redirect()->route('home')->with('success', 'Make Offer Button Script Updated Successfully');
         }else{
-            return redirect()->back()->with('error', 'Something Wrong');
+            return redirect()->route('home')->with('error', 'Something Wrong');
         }
     }
 
@@ -98,9 +98,9 @@ class ProductController extends Controller
         $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
         if(count($scripts)>0) {
             $snippet = $shop->api()->rest('DELETE', '/admin/api/2022-10/script_tags/' . $scripts[0]->id . '.json')['body'];
-            return redirect()->back()->with('success', 'Make Offer Button Remove Successfully');
+            return redirect()->route('home')->with('success', 'Make Offer Button Remove Successfully');
         }
-        return redirect()->back()->with('error', 'Something Wrong');
+        return redirect()->route('home')->with('error', 'Something Wrong');
     }
     public function include_snippet($active_theme_id, $shop)
     {
