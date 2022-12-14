@@ -25,6 +25,11 @@ function appendButton(){
     modalEmailEl.type = 'email';
     modaldiv.appendChild(modalEmailEl);
 
+    var modalOfferEl = document.createElement("input");
+    modalOfferEl.placeholder = "Offer Amount";
+    modalOfferEl.type = 'number';
+    modaldiv.appendChild(modalOfferEl);
+
     const modal = document.querySelector(".modal");
     const overlay = document.querySelector(".overlay");
     // const openModalBtn = document.querySelector(".mko");
@@ -69,9 +74,12 @@ function appendButton(){
             '  width: 500px;\n' +
             '  padding: 1.3rem;\n' +
             '  min-height: 200px;\n' +
-            '  position: absolute;\n' +
+            '  position: fixed;\n' +
             '  top: 25%;\n' +
-            '  z-index: 2;\n' +
+            '  z-index: 4;\n' +
+            '  left: 50%;\n' +
+            '  top: 50%;\n' +
+            '  transform: translate(-50%, -50%);' +
             '  background-color: white;\n' +
             '  border: 1px solid #ddd;\n' +
             '  border-radius: 15px;\n' +
