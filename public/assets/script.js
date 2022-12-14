@@ -2,8 +2,15 @@ function appendButton(){
 
     var listofClasses = document.getElementsByName('add')[0].classList;
     listofClasses.add('mko');
+    listofClasses.add('btn');
+    listofClasses.add(' btn-open');
     console.log(listofClasses.value);
     var buttonEl = document.createElement("button");
+    var modal = document.createElement('section');
+    modal.className = 'modal hidden';
+    var overlay = document.createElement('div');
+    modal.className = 'overlay hidden';
+
     buttonEl.addEventListener("click", myFunction);
     // buttonEl.href = url;
     // buttonEl.setAttribute('onclick', myFunction());
@@ -21,6 +28,8 @@ function appendButton(){
         var parentElement = myDiv.parentElement.closest('div');
         console.log(parentElement);
         parentElement.appendChild(buttonEl);
+        parentElement.appendChild(modal);
+        parentElement.appendChild(overlay);
     })
 }
 
@@ -34,29 +43,3 @@ function myFunction() {
     }
 }
 appendButton();
-
-
-// var xhr =  new XMLHttpRequest();
-// // xhr.open('GET', )
-//
-// xhr.onreadystatechange = function () {
-//     if(xhr.readyState === 4 && xhr.status === 200) {
-//         var response = JSON.parse(this.responseText);
-//         if(response.status) {
-//             console.log('asdfasdfasdfasdf');
-//             // function appendButton(elementClass, url){
-//             //     var buttonEl = document.createElement("a");
-//             //     buttonEl.href = url;
-//             //     var buttonTextEl = document.createElement("span");
-//             //     buttonTextEl.className = "picon-p-add-news";
-//             //     buttonTextEl.innerText = "Read more news";
-//             //     buttonEl.appendChild(buttonTextEl);
-//             //     document.getElementsByClassName(elementClass).appendChild(buttonEl);
-//             // }
-//             // appendButton('product-form__buttons', 'https://www.google.com/');
-//
-//         }
-//     }
-// }
-// xhr.send();
-//
