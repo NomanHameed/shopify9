@@ -87,11 +87,6 @@ function appendButton(){
             '  font-size: 1em;\n' +
             '}\n' +
             '\n' +
-            '.btn-open {\n' +
-            '  position: absolute;\n' +
-            '  bottom: 150px;\n' +
-            '}\n' +
-            '\n' +
             '.btn-close {\n' +
             '  transform: translate(10px, -20px);\n' +
             '  padding: 0.5rem 0.7rem;\n' +
