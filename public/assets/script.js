@@ -5,14 +5,14 @@ function appendButton(){
     listofClasses.add('btn-open');
     console.log(listofClasses.value);
     var buttonEl = document.createElement("button");
-    var modal = document.createElement('section');
-    modal.className = 'modal hidden';
-    var overlay = document.createElement('div');
-    overlay.className = 'overlay hidden';
-    document.body.append(modal);
-    document.body.append(overlay);
+    var modaldiv = document.createElement('section');
+    modaldiv.className = 'modal hidden';
+    var overlaydiv = document.createElement('div');
+    overlaydiv.className = 'overlay hidden';
+    document.body.append(modaldiv);
+    document.body.append(overlaydiv);
 
-    // buttonEl.addEventListener("click", openModal);
+    buttonEl.addEventListener("click", openModal);
     // buttonEl.href = url;
     // buttonEl.setAttribute('onclick', myFunction());
     buttonEl.className = listofClasses.value;
@@ -32,6 +32,17 @@ function appendButton(){
     })
 
 
+    const modal = document.querySelector(".modal");
+    const overlay = document.querySelector(".overlay");
+    // const openModalBtn = document.querySelector(".mko");
+
+    const openModal = function () {
+        console.log('modal open');
+        modal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+    };
+
+    // openModalBtn.addEventListener("click", openModal);
     // add style to head
 
 
@@ -120,19 +131,6 @@ function appendButton(){
         style.appendChild(document.createTextNode(css));
     }
 
-
-}
-window.onload = function() {
-    const modal = document.querySelector(".modal");
-    const overlay = document.querySelector(".overlay");
-    const openModalBtn = document.querySelector(".btn-open");
-
-    const openModal = function () {
-        modal.classList.remove("hidden");
-        overlay.classList.remove("hidden");
-    };
-
-    openModalBtn.addEventListener("click", openModal);
 
 }
 function myFunction() {
