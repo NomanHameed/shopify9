@@ -14,7 +14,7 @@ function appendButton(){
     body.appendChild(modal);
     body.appendChild(overlay);
 
-    buttonEl.addEventListener("click", myFunction);
+    // buttonEl.addEventListener("click", openModal);
     // buttonEl.href = url;
     // buttonEl.setAttribute('onclick', myFunction());
     buttonEl.className = listofClasses.value;
