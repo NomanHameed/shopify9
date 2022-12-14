@@ -5,7 +5,7 @@ function appendButton(){
     console.log(listofClasses.value);
     var buttonEl = document.createElement("button");
     // buttonEl.href = url;
-    buttonEl.setAttribute('onclick', myFunction());
+    // buttonEl.setAttribute('onclick', myFunction());
     buttonEl.className = listofClasses.value;
     buttonEl.style = 'margin-top : 5px !important'
     buttonEl.type = 'button';
@@ -32,6 +32,10 @@ function myFunction() {
         text = "Hello " + person + "! How are you today?";
     }
 }
+
+document.getElementsByClassName('mko')[0].onclick(function (){
+    myFunction();
+})
 appendButton();
 
 
