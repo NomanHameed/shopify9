@@ -11,9 +11,19 @@ function appendButton(){
     overlaydiv.className = 'overlay hidden';
     document.body.append(modaldiv);
     document.body.append(overlaydiv);
-    var modalTextEl = document.createElement("span");
-    modalTextEl.innerText = "InSide on Modal";
-    modaldiv.appendChild(modalTextEl);
+    var modalCloseDiv = document.createElement("div");
+    modalCloseDiv.className = 'flex';
+    modaldiv.appendChild(modalCloseDiv);
+    var modalCloseEl = document.createElement("button");
+    modalCloseEl.className = 'btn-close';
+    modalCloseEl.type = 'button';
+    modalCloseEl.innerText = 'x'
+    modalCloseDiv.appendChild(modalCloseEl);
+
+    var modalEmailEl = document.createElement("input");
+    modalEmailEl.placeholder = "Email Address";
+    modalEmailEl.type = 'email';
+    modaldiv.appendChild(modalEmailEl);
 
     const modal = document.querySelector(".modal");
     const overlay = document.querySelector(".overlay");
