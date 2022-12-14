@@ -66,11 +66,11 @@ function appendButton(){
             '  flex-direction: column;\n' +
             '  justify-content: center;\n' +
             '  gap: 0.4rem;\n' +
-            '  width: 450px;\n' +
+            '  width: 500px;\n' +
             '  padding: 1.3rem;\n' +
-            '  min-height: 250px;\n' +
+            '  min-height: 200px;\n' +
             '  position: absolute;\n' +
-            '  top: 20%;\n' +
+            '  top: 25%;\n' +
             '  z-index: 2;\n' +
             '  background-color: white;\n' +
             '  border: 1px solid #ddd;\n' +
@@ -117,6 +117,8 @@ function appendButton(){
             '  transform: translate(10px, -20px);\n' +
             '  padding: 0.5rem 0.7rem;\n' +
             '  background: #eee;\n' +
+            '  margin-right: 15px;\n' +
+            '  margin-left: auto;' +
             '  border-radius: 50%;\n' +
             '}.hidden {\n' +
             '  display: none;\n' +
