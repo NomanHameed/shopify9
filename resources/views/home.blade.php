@@ -6,8 +6,15 @@
     <p>You are: {{ $shopDomain ?? Auth::user()->name }}</p>
 
     <div>
-        <div><button class="btn--secondary" onclick="alert('testing')" type="button" id="addOffer">Add Offer</button></div>
-        <div><button class="btn--secondary" type="button" id="updateOffer">Update Offer</button></div>
+        <div>
+            <form action="{{ route('add.script') }}">
+                <button class="btn--secondary" type="submit" id="addOffer">Add Offer</button></div>
+            </form>
+        <div>
+            <form action="{{ route('update.script') }}">
+                <button class="btn--secondary" type="submit" id="updateOffer">Update Offer</button></div>
+            </form>
+
         <div><button class="btn--secondary" type="button" id="deleteOffer">Delete Offer</button></div>
     </div>
 

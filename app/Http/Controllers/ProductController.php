@@ -6,21 +6,21 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function productList()
+    public function landingPage()
     {
         $shop = auth()->user();
-        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
+//        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
 
 //        dd($scripts);
 //        if(count($scripts)>0){
 //            $snippet = $shop->api()->rest('DELETE', '/admin/api/2022-10/script_tags/'.$scripts[0]->id.'.json')['body'];
-            $script_tag_info = [
-                "script_tag" => [
-                    "event" => "onload",
-                    "src" => asset('assets/script.js')
-                ]
-            ];
-            $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/script_tags/'.$scripts[0]->id.'.json', $script_tag_info);
+//            $script_tag_info = [
+//                "script_tag" => [
+//                    "event" => "onload",
+//                    "src" => asset('assets/script.js')
+//                ]
+//            ];
+//            $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/script_tags/'.$scripts[0]->id.'.json', $script_tag_info);
 //            dd($snippet);
 //        }else{
 //            $script_tag_info = [
@@ -35,16 +35,16 @@ class ProductController extends Controller
 //        dd('no record');
 
 //        dd($snippet);
-        $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
+//        $themes = $shop->api()->rest('GET', '/admin/api/2022-01/themes.json');
 //        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json');
-        $themes = $themes['body']['themes'];
+//        $themes = $themes['body']['themes'];
 //        dd($themes);
 //        $res = auth()->user()->api()->rest('GET','/admin/api/2022-10/products.json');
-        foreach ($themes  as $theme){
-            if($theme->role == 'main'){
-                $active_theme = $theme;
-            }
-        }
+//        foreach ($themes  as $theme){
+//            if($theme->role == 'main'){
+//                $active_theme = $theme;
+//            }
+//        }
 
 
 //        $data_to_put = [
@@ -59,6 +59,48 @@ class ProductController extends Controller
         return view('home');
     }
 
+    public function addScript(){
+        $shop = auth()->user();
+        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
+        if(count($scripts) != 0){
+            $script_tag_info = [
+                "script_tag" => [
+                    "event" => "onload",
+                    "src" => asset('assets/script.js')
+                ]
+            ];
+            $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
+            return redirect()->back()->with('success', 'Make Offer Button Added Successfully');
+        }
+    }
+
+    public function updateScript(){
+        $shop = auth()->user();
+        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
+        if(count($scripts)>0) {
+            $script_tag_info = [
+                "script_tag" => [
+                    "event" => "onload",
+                    "src" => asset('assets/script.js')
+                ]
+            ];
+            $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/script_tags/' . $scripts[0]->id . '.json', $script_tag_info);
+            return redirect()->back()->with('success', 'Make Offer Button Script Updated Successfully');
+        }else{
+            return redirect()->back()->with('error', 'Something Wrong');
+        }
+    }
+
+    public function removeScript()
+    {
+        $shop = auth()->user();
+        $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
+        if(count($scripts)>0) {
+            $snippet = $shop->api()->rest('DELETE', '/admin/api/2022-10/script_tags/' . $scripts[0]->id . '.json')['body'];
+            return redirect()->back()->with('success', 'Make Offer Button Remove Successfully');
+        }
+        return redirect()->back()->with('error', 'Something Wrong');
+    }
     public function include_snippet($active_theme_id, $shop)
     {
         $html = $shop->api()->rest('GET', '/admin/api/2022-10/themes/'.$active_theme_id.'/assets.json', ['asset[key]' => 'layout/theme.liquid'])['body']['asset']['value'];
