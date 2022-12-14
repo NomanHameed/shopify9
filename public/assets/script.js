@@ -1,4 +1,4 @@
-function appendButton(){
+function appendButton(elementClass){
 
     var listofClasses = document.getElementsByName('add')[0].classList;
     listofClasses.add('mko');
@@ -66,13 +66,13 @@ function appendButton(){
     buttonTextEl.innerText = "Make Offer";
     buttonEl.appendChild(buttonTextEl);
 
-    // var divList = document.getElementsByClassName(elementClass);
-    var divList = document.getElementsByName('add');
-    divList.forEach(function (myDiv) {
-        var parentElement = myDiv.parentElement.closest('div');
+    var divList = document.getElementsByClassName(elementClass);
+    // var divList = document.getElementsByName('add');
+    // divList.forEach(function (myDiv) {
+    //     var parentElement = myDiv.parentElement.closest('div');
         console.log(parentElement);
-        parentElement.appendChild(buttonEl);
-    })
+        divList[0].appendChild(buttonEl);
+    // })
 
 
 
@@ -180,4 +180,4 @@ function myFunction() {
         text = "Hello " + person + "! How are you today?";
     }
 }
-appendButton();
+appendButton('product-form__buttons');
