@@ -84,7 +84,8 @@ function appendButton(elementClass){
         var xhr = new XMLHttpRequest();
 
         // Making our connection
-        var url = 'https://jsonplaceholder.typicode.com/todos/1';
+        // var url = 'https://jsonplaceholder.typicode.com/todos/1';
+        var url = 'https://fillinx.noumanengr.com/api/send/email';
         xhr.open("GET", url, true);
 
         // function execute after request is successful
