@@ -21,7 +21,7 @@
         <div>
             <form action="{{ route('add.script') }}" method="get">
                 @csrf
-                <button class="btn--secondary" type="submit" id="addOffer">Add Offer</button>
+                <button class="btn btn-primary" type="submit" id="addOffer">Add Offer</button>
             </form>
         </div>
         <div>
