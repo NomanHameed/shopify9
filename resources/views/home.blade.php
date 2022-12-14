@@ -7,13 +7,13 @@
 
     <div>
         <div>
-            <form action="{{ route('add.script') }}">
-                <button class="btn--secondary" type="submit" id="addOffer">Add Offer</button></div>
-            </form>
+{{--            <form action="{{ route('add.script') }}">--}}
+                <button class="btn--secondary" type="button" id="addOffer">Add Offer</button></div>
+{{--            </form>--}}
         <div>
-            <form action="{{ route('update.script') }}">
-                <button class="btn--secondary" type="submit" id="updateOffer">Update Offer</button></div>
-            </form>
+{{--            <form action="{{ route('update.script') }}">--}}
+                <button class="btn--secondary" type="button" id="updateOffer">Update Offer</button></div>
+{{--            </form>--}}
 
         <div><button class="btn--secondary" type="button" id="deleteOffer">Delete Offer</button></div>
     </div>
@@ -26,9 +26,12 @@
 
     <script>
         actions.TitleBar.create(app, { title: 'Welcome' });
-        // document.getElementById('addOffer').onClick = function (){
-        //     alert('Add Button Alert');
-        // }
+        document.getElementById('addOffer').onClick = function (){
+            alert('Add Button Alert');
+        }
+        document.getElementById('updateOffer').onClick = function (){
+            alert('Update Button Alert');
+        }
     </script>
 
 @endsection

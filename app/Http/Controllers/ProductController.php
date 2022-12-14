@@ -85,6 +85,7 @@ class ProductController extends Controller
                 ]
             ];
             $snippet = $shop->api()->rest('PUT', '/admin/api/2022-10/script_tags/' . $scripts[0]->id . '.json', $script_tag_info);
+            dd($snippet);
             return redirect()->back()->with('success', 'Make Offer Button Script Updated Successfully');
         }else{
             return redirect()->back()->with('error', 'Something Wrong');
