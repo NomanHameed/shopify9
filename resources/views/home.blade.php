@@ -6,28 +6,29 @@
     <!-- You are: (shop domain name) -->
     <h2>Make an Offer Button Function</h2>
     <p>You are: {{ $shopDomain ?? Auth::user()->name }}</p>
-    <div class="contact-form">
-        <h2 align="center" >Authentication</h2>
-        <form method="post" action="/signin"  class="form-horizontal" role="form" align="center">
-            <div class="form-group" align="center">
-                <label class="control-label col-sm-2"  for="username">username<em>*</em></label>
-                <div class="col-sm-6">
-                    <input type="text" name="username" id="username" placeholder="username" required="true" class="form-control"/>
-                </div>
+
+        <div class="row">
+            <div class="col offset-3">
+                <form action="{{ route('add.script') }}" method="get">
+                    @csrf
+                    <button class="btn btn-primary" type="submit" id="addOffer">Add Offer</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="password">password<em>*</em></label>
-                <div class="col-sm-6">
-                    <input type="password" name="password" id="password" required="true" class="form-control"/>
-                </div>
+            <div  class="col">
+                <form action="{{ route('update.script') }}" method="get">
+                    @csrf
+                    <button class="btn btn-secondary" type="submit" id="updateOffer">Update Offer</button>
+
+                </form>
             </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-8">
-                    <input type="submit" name="signin" id="signin" value="sign in" class="btn btn-default"/>
-                </div>
+            <div class="col">
+                <form action="{{ route('remove.script') }}" method="get">
+                    <button class="btn btn-danger" type="submit" id="deleteOffer">Delete Offer</button>
+                </form>
             </div>
-        </form>
-    </div>
+
+        </div>
+
 
 
 
@@ -42,27 +43,7 @@
             {{ session()->get('error') }}
         </div>
     @endif
-    <div class="row">
-        <div class="col-1">
-            <form action="{{ route('add.script') }}" method="get">
-                @csrf
-                <button class="btn btn-primary" type="submit" id="addOffer">Add Offer</button>
-            </form>
-        </div>
-        <div  class="col-1">
-            <form action="{{ route('update.script') }}" method="get">
-                @csrf
-                <button class="btn--secondary" type="submit" id="updateOffer">Update Offer</button>
 
-            </form>
-        </div>
-        <div class="col-1">
-            <form action="{{ route('remove.script') }}" method="get">
-                <button class="btn--secondary" type="submit" id="deleteOffer">Delete Offer</button>
-            </form>
-        </div>
-
-    </div>
 
 @endsection
 
