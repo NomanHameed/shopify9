@@ -10,11 +10,63 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
+    <style>
+        .back {
+            background: #e2e2e2;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+
+        .div-center {
+            width: 400px;
+            height: 400px;
+            background-color: #fff;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+            overflow: auto;
+            padding: 1em 2em;
+            border-bottom: 2px solid #ccc;
+            display: table;
+        }
+
+        div.content {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
-<form action="{{ '/authenticate' }}">
-    <input type="text" name="shop" required>
-    <input type="submit" value="Login">
-</form>
+    <div class="back">
+
+
+        <div class="div-center">
+
+
+            <div class="content">
+
+
+                <h3>Login</h3>
+                <hr />
+                <form action="{{ '/authenticate' }}">
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Shopify Store URL</label>
+                        <input type="text" class="form-control" placeholder="Shopify Store URL" name="shop" required>
+                    </div>
+                    <hr />
+                    <input type="submit" value="Login"  class="btn btn-primary">
+                </form>
+            </div>
+            </span>
+        </div>
+
 </body>
 </html>
