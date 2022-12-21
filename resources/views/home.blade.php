@@ -39,7 +39,7 @@
         actions.TitleBar.create(app, {title: 'Welcome'});
         document.getElementById('addOffer').onclick = function (){
             let request = new XMLHttpRequest();
-            request.open('https://fillinx.noumanengr.com/add');
+            request.open('GET','https://fillinx.noumanengr.com/add');
             request.send();
             request.onload = () => {
                 console.log(request);
