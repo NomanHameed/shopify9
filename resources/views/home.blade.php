@@ -43,7 +43,7 @@
             request.open('GET','https://fillinx.noumanengr.com/add');
             request.send();
             request.onload = () => {
-                console.log(request);
+                console.log(JSON.parse(request.response));
                 if(request.status == 200) {
                     console.log('Done');
                 }else{
@@ -58,7 +58,7 @@
             request.open('GET','https://fillinx.noumanengr.com/destroy');
             request.send();
             request.onload = () => {
-                console.log(request);
+                console.log(JSON.parse(request.response));
                 if(request.status == 200) {
                     console.log('Done');
                 }else{
