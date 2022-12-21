@@ -77,6 +77,7 @@ class ProductController extends Controller
     public function updateScript(){
         $shop = auth()->user();
         $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
+        dd($scripts);
         if(count($scripts)>0) {
             $script_tag_info = [
                 "script_tag" => [
