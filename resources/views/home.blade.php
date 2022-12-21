@@ -13,15 +13,11 @@
                     @csrf
                     <button class="btn btn-primary" type="submit" id="addOffer">Add Offer</button>
                 </form>
-            </div>
-            <div  class="col">
                 <form action="{{ route('update.script') }}" method="get">
                     @csrf
                     <button class="btn btn-secondary" type="submit" id="updateOffer">Update Offer</button>
 
                 </form>
-            </div>
-            <div class="col">
                 <form action="{{ route('remove.script') }}" method="get">
                     <button class="btn btn-danger" type="submit" id="deleteOffer">Delete Offer</button>
                 </form>
