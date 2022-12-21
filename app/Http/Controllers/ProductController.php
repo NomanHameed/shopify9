@@ -103,9 +103,13 @@ class ProductController extends Controller
         $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
         if(count($scripts)>0) {
             $snippet = $shop->api()->rest('DELETE', '/admin/api/2022-10/script_tags/' . $scripts[0]->id . '.json')['body'];
-            return redirect()->route('home')->with('success', 'Make Offer Button Remove Successfully');
+            if($snippet){
+                return true;
+            }
+//            return redirect()->route('home')->with('success', 'Make Offer Button Remove Successfully');
         }
-        return redirect()->route('home')->with('error', 'Something Wrong');
+        return false;
+//        return redirect()->route('home')->with('error', 'Something Wrong');
     }
     public function include_snippet($active_theme_id, $shop)
     {
