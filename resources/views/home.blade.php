@@ -8,16 +8,20 @@
     <p>You are: {{ $shopDomain ?? Auth::user()->name }}</p>
 
         <div class="row">
-            <div class="col offset-3">
+            <div class="col-1 mb-3 offset-3">
                 <form action="{{ route('add.script') }}" method="get">
                     @csrf
                     <button class="btn btn-primary" type="submit" id="addOffer">Add Offer</button>
                 </form>
+            </div>
+            <div  class="col-2 mb-3">
                 <form action="{{ route('update.script') }}" method="get">
                     @csrf
                     <button class="btn btn-secondary" type="submit" id="updateOffer">Update Offer</button>
 
                 </form>
+            </div>
+            <div class="col-1 mb-3">
                 <form action="{{ route('remove.script') }}" method="get">
                     <button class="btn btn-danger" type="submit" id="deleteOffer">Delete Offer</button>
                 </form>
