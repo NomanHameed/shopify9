@@ -40,7 +40,7 @@
         actions.TitleBar.create(app, {title: 'Welcome'});
         document.getElementById('addOffer').onclick = function (){
             let request = new XMLHttpRequest();
-            request.open('GET','https://fillinx.noumanengr.com/add');
+            request.open('GET',{{ route('add.script') }});
             request.send();
             request.onload = () => {
                 console.log(JSON.parse(request.response));
@@ -55,7 +55,7 @@
 
         document.getElementById('deleteOffer').onclick = function (){
             let request = new XMLHttpRequest();
-            request.open('GET','https://fillinx.noumanengr.com/destroy');
+            request.open('GET',{{ route('remove.script') }});
             request.send();
             request.onload = () => {
                 console.log(JSON.parse(request.response));
