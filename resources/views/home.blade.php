@@ -11,7 +11,7 @@
             <div class="col-1 mb-3 offset-3">
 {{--                <form action="{{ route('add.script') }}" method="get">--}}
 {{--                    @csrf--}}
-                    <button class="btn btn-primary" type="submit" id="addOffer">Add Offer</button>
+                    <button class="btn btn-primary" type="button" id="addOffer">Add Offer</button>
 {{--                </form>--}}
             </div>
 {{--            <div  class="col-2 mb-3">--}}
