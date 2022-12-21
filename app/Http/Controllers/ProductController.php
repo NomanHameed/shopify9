@@ -70,14 +70,19 @@ class ProductController extends Controller
                 ]
             ];
             $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
-            return redirect()->route('home')->with('success', 'Make Offer Button Added Successfully');
+            if($scripts){
+                return true;
+            }
+
+            return false;
+//            return redirect()->route('home')->with('success', 'Make Offer Button Added Successfully');
         }
+        return false;
     }
 
     public function updateScript(){
         $shop = auth()->user();
         $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
-        dd($scripts);
         if(count($scripts)>0) {
             $script_tag_info = [
                 "script_tag" => [

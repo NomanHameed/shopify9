@@ -38,7 +38,18 @@
     <script>
         actions.TitleBar.create(app, {title: 'Welcome'});
         document.getElementById('addOffer').onclick = function (){
-            alert('Add Button Alert');
+            let request = new XMLHttpRequest();
+            request.open('https://fillinx.noumanengr.com/add');
+            request.send();
+            request.onload = () => {
+                console.log(request);
+                if(request.status == 200) {
+                    console.log('Done');
+                }else{
+                    console.log('fail');
+                }
+            }
+
         }
     </script>
 
