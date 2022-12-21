@@ -62,6 +62,8 @@ class ProductController extends Controller
     public function addScript(){
         $shop = auth()->user();
         $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
+        return response()->json(['scr'=>$scripts]);
+
         if(count($scripts) != 0){
             $script_tag_info = [
                 "script_tag" => [
@@ -101,6 +103,8 @@ class ProductController extends Controller
     {
         $shop = auth()->user();
         $scripts = $shop->api()->rest('GET', '/admin/api/2022-10/script_tags.json')['body']['script_tags'];
+        return response()->json(['scr'=>$scripts]);
+
         if(count($scripts)>0) {
             $snippet = $shop->api()->rest('DELETE', '/admin/api/2022-10/script_tags/' . $scripts[0]->id . '.json')['body'];
             if($snippet){
