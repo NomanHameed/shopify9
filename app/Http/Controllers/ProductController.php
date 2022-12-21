@@ -70,7 +70,7 @@ class ProductController extends Controller
                 ]
             ];
             $snippet = $shop->api()->rest('POST', '/admin/api/2022-10/script_tags.json', $script_tag_info);
-            if($scripts){
+            if($snippet){
                 return true;
             }
 
