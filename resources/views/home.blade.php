@@ -9,10 +9,10 @@
 
         <div class="row">
             <div class="col-1 mb-3 offset-3">
-                <form action="{{ route('add.script') }}" method="get">
-                    @csrf
+{{--                <form action="{{ route('add.script') }}" method="get">--}}
+{{--                    @csrf--}}
                     <button class="btn btn-primary" type="submit" id="addOffer">Add Offer</button>
-                </form>
+{{--                </form>--}}
             </div>
 {{--            <div  class="col-2 mb-3">--}}
 {{--                <form action="{{ route('update.script') }}" method="get">--}}
@@ -30,21 +30,6 @@
         </div>
 
 
-
-
-
-    @if(session()->has('success'))
-        <div class="alert alert-success">
-            {{ session()->get('success') }}
-        </div>
-    @endif
-    @if(session()->has('error'))
-        <div class="alert alert-danger">
-            {{ session()->get('error') }}
-        </div>
-    @endif
-
-
 @endsection
 
 @section('scripts')
@@ -52,9 +37,9 @@
 
     <script>
         actions.TitleBar.create(app, {title: 'Welcome'});
-        // document.getElementById('addOffer').onClick = function (){
-        //     alert('Add Button Alert');
-        // }
+        document.getElementById('addOffer').onClick = function (){
+            alert('Add Button Alert');
+        }
     </script>
 
 @endsection
