@@ -1,5 +1,5 @@
 function appendButton(elementClass){
-
+    var current_host = window.location.hostname;
     var listofClasses = document.getElementsByName('add')[0].classList;
     listofClasses.add('mko');
     listofClasses.add('btn-open');
@@ -22,11 +22,20 @@ function appendButton(elementClass){
     var modalEmailEl = document.createElement("input");
     modalEmailEl.placeholder = "Email Address";
     modalEmailEl.type = 'email';
+    modalEmailEl.name = 'email';
     modalEmailEl.required = true;
     modaldiv.appendChild(modalEmailEl);
 
+    var modalHostHiddenEl = document.createElement("input");
+    modalHostHiddenEl.type = 'hidden';
+    modalHostHiddenEl.name = "host";
+    modalHostHiddenEl.required = true;
+    modalHostHiddenEl.value = current_host;
+    modaldiv.appendChild(modalHostHiddenEl);
+
     var modalOfferEl = document.createElement("input");
     modalOfferEl.placeholder = "Offer Amount";
+    modalOfferEl.name = "amount";
     modalOfferEl.type = 'number';
     modaldiv.appendChild(modalOfferEl);
 
@@ -75,23 +84,21 @@ function appendButton(elementClass){
         divList[0].appendChild(buttonEl);
     // })
 
-
-
-    // call testing
     const runCall = function(){
 
         // Creating Our XMLHttpRequest object
         var xhr = new XMLHttpRequest();
-
-        // Making our connection
-        // var url = 'https://jsonplaceholder.typicode.com/todos/1';
-        var url = 'https://fillinx.noumanengr.com/api/send/email';
-        xhr.open("GET", url, true);
-
+        var url = 'https://shopify.noumanengr.com/api/test';
+        xhr.open("GET", url);
+        xhr.send()
         // function execute after request is successful
         xhr.onreadystatechange = function () {
+            console.log("Done this call");
             if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
+                console.log('success on email');
+            }
+            else{
+                console.log('error on send email');
             }
         }
         // Sending our request
